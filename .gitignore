@@ -1,3 +1,8 @@
 *~
 html
 Bender.lock
+logs*
+reports*
+results*
+WORK/
+.vscode

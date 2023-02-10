@@ -15,8 +15,8 @@
 
 module fpnew_top #(
   // FPU configuration
-  parameter fpnew_pkg::fpu_features_t       Features       = fpnew_pkg::RV64D_Xsflt,
-  parameter fpnew_pkg::fpu_implementation_t Implementation = fpnew_pkg::DEFAULT_NOREGS,
+  parameter fpnew_pkg::fpu_features_t       Features       = fpnew_pkg::RV8F_Xsflt,
+  parameter fpnew_pkg::fpu_implementation_t Implementation = fpnew_pkg::DEFAULT_NOREGS_AM_NC,
   parameter type                            TagType        = logic,
   // Do not change
   localparam int unsigned WIDTH        = Features.Width,
