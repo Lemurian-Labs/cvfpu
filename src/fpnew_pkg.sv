@@ -313,6 +313,24 @@ package fpnew_pkg;
     PipeConfig: BEFORE
   };
 
+  localparam fpu_implementation_t PIPE_THREE_NOREGS_AM_NC = '{
+    PipeRegs:   '{default: 3},
+    UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
+                  '{default: DISABLED},   // DIVSQRT
+                  '{default: DISABLED}, // NONCOMP
+                  '{default: DISABLED}},  // CONV
+    PipeConfig: DISTRIBUTED
+  };
+
+  localparam fpu_implementation_t PIPE_TWO_MERGE_DISTRIB = '{
+    PipeRegs:   '{default: 2},
+    UnitTypes:  '{'{default: MERGED}, // ADDMUL
+                  '{default: DISABLED},   // DIVSQRT
+                  '{default: DISABLED}, // NONCOMP
+                  '{default: DISABLED}},  // CONV
+    PipeConfig: DISTRIBUTED
+  };
+
   localparam fpu_implementation_t DEFAULT_SNITCH = '{
     PipeRegs:   '{default: 1},
     UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
