@@ -262,6 +262,14 @@ package fpnew_pkg;
     IntFmtMask:    4'b0000
   };
 
+  localparam fpu_features_t RV16F_Xsflt_ex10mt5 = '{
+    Width:         16,
+    EnableVectors: 1'b0,
+    EnableNanBox:  1'b0,
+    FpFmtMask:     5'b00100,
+    IntFmtMask:    4'b0000
+  };
+
   localparam fpu_features_t RV16F_8L_Xsflt = '{
     Width:         128,
     EnableVectors: 1'b1,
@@ -315,6 +323,15 @@ package fpnew_pkg;
 
   localparam fpu_implementation_t PIPE_THREE_NOREGS_AM_NC = '{
     PipeRegs:   '{default: 3},
+    UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
+                  '{default: DISABLED},   // DIVSQRT
+                  '{default: DISABLED}, // NONCOMP
+                  '{default: DISABLED}},  // CONV
+    PipeConfig: DISTRIBUTED
+  };
+
+  localparam fpu_implementation_t PIPE_ZERO_PARALLEL_ADDMUL = '{
+    PipeRegs:   '{default: 0},
     UnitTypes:  '{'{default: PARALLEL}, // ADDMUL
                   '{default: DISABLED},   // DIVSQRT
                   '{default: DISABLED}, // NONCOMP
